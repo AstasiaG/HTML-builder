@@ -11,7 +11,6 @@ fs.access(copyPath, fs.constants.F_OK, (err) => {
     fsPromises.rm(copyPath,{ recursive: true})
       .then(function () {
         createFolder();
-        copeFiles();
       })
       .catch(function(err) { console.log(err) })
   }
@@ -21,6 +20,8 @@ function createFolder() {
   fs.mkdir(copyPath, (err) => {
     if (err) { console.log(err) }
   });
+
+  copeFiles();
 }
 
 function copeFiles() {
